@@ -6,7 +6,12 @@ import {
   type OnInit,
 } from '@angular/core';
 import { CdbSimulatorService } from '../data/services/cdb-simulator.service';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { SimulationResultsComponent } from './components/simulation-results/simulation-results.component';
 
 @Component({
@@ -49,5 +54,12 @@ export class HomeComponent implements OnInit {
           this.months.set(this.form.controls.months.value ?? 0);
         });
     }
+  }
+
+  get formControls(): {
+    initialValue: FormControl<number | null>;
+    months: FormControl<number | null>;
+  } {
+    return this.form.controls;
   }
 }

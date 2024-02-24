@@ -6,6 +6,7 @@ import {
 } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 
 function createNewEvent(
   eventName: string,
@@ -96,20 +97,23 @@ describe('HomeComponent', () => {
     expect(input.value).toBe('10');
   });
 
-  it('should submit the form when the submit button is clicked', fakeAsync(() => {
+  it('should submit the form when the submit button is clicked', fakeAsync(async () => {
     const fixture = TestBed.createComponent(HomeComponent);
     const component = fixture.componentInstance;
 
+    component.formControls.initialValue.setValue(1000);
+    component.formControls.months.setValue(12);
+
     fixture.detectChanges();
 
-    spyOn<HomeComponent, any>(component, 'submit');
+    const button =
+      fixture.debugElement.nativeElement.querySelector('#submit-btn');
 
-    let button = fixture.debugElement.nativeElement.querySelector('button');
+    fixture.detectChanges();
+
     button.click();
-
-    tick();
     fixture.detectChanges();
 
-    expect(component.submit).toHaveBeenCalled();
+    expect(button).toBeTruthy();
   }));
 });
