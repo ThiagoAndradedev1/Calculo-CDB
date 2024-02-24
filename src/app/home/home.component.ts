@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  type OnInit,
+} from '@angular/core';
 import { CdbSimulatorService } from '../data/services/cdb-simulator.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SimulationResultsComponent } from './components/simulation-results/simulation-results.component';
@@ -23,8 +28,12 @@ export class HomeComponent implements OnInit {
     months: [0, Validators.required],
   });
 
+  protected totalValue = signal(0);
+  protected discountedValue = signal(0);
+  protected months = signal(0);
+
   ngOnInit(): void {
-    console.log('init home');
+    // this.form.controls.months.valueChanges.pipe()
   }
 
   submit(): void {
@@ -34,7 +43,11 @@ export class HomeComponent implements OnInit {
     if (initialValue && monthsValue) {
       this.cdbSimulatorService
         .simulateCdb(initialValue, monthsValue)
-        .subscribe(console.log);
+        .subscribe((resultCdb) => {
+          this.totalValue.set(resultCdb.totalValue);
+          this.discountedValue.set(resultCdb.discountedValue);
+          this.months.set(this.form.controls.months.value ?? 0);
+        });
     }
   }
 }
