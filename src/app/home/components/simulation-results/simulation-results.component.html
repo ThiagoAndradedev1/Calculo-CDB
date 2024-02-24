@@ -1,0 +1,15 @@
+<div>
+  <h3>
+    Em <span class="highlight-text fw-bold">{{ months }} meses</span> você teria
+  </h3>
+
+  <div class="my-4">
+    <h1 class="result highlight-text fw-bold">
+      {{ discountedValue | currency }}
+    </h1>
+
+    <small>Valor líquido com os impostos descontados</small>
+  </div>
+
+  <h5 class="fw-bold">Valor bruto: {{ totalValue | currency }}</h5>
+</div>
