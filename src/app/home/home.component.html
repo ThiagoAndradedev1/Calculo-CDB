@@ -1,1 +1,7 @@
-<p>home works!</p>,
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <input placeholder="Valor" formControlName="initialValue" />
+    <input placeholder="Qtde Meses" formControlName="months" />
+
+    <button>Calcular</button>
+</form>
+
