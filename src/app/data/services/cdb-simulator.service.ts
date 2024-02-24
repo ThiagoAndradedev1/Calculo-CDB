@@ -15,7 +15,14 @@ export class CdbSimulatorService {
   private readonly cdiTb = this.tb * this.cdi;
 
   simulateCdb(initialValue: number, months: number): Observable<CdbResult> {
-    const totalValue = initialValue * (1 + this.cdiTb);
+    let totalValue = initialValue;
+
+    console.log(initialValue * Math.pow(1 + this.cdiTb, months));
+    console.log(initialValue * (1 + this.cdiTb) ** months);
+
+    for (let index = 0; index < months; index++) {
+      totalValue = totalValue * (1 + this.cdiTb);
+    }
 
     const discountedValue = calculateDiscountedValueCdb(totalValue, months);
 
