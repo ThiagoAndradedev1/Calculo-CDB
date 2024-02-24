@@ -1,7 +1,44 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <input placeholder="Valor" formControlName="initialValue" />
-    <input placeholder="Qtde Meses" formControlName="months" />
+<div class="d-flex justify-content-center mt-4">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">💰 Calculadora de CDB 💰</h1>
+      <p class="lead">
+        Uma calculadora simplificada para saber o resultado dos seus
+        investimentos!
+      </p>
+    </div>
+  </div>
+</div>
 
-    <button>Calcular</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label for="initialValue" class="form-label">Valor Inicial</label>
+          <input
+            type="text"
+            class="form-control"
+            id="initialValue"
+            aria-describedby="initialValue"
+            placeholder="Valor Inicial"
+            formControlName="initialValue"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="months" class="form-label">Meses</label>
+          <input
+            type="text"
+            class="form-control"
+            id="months"
+            placeholder="Meses"
+            formControlName="months"
+          />
+        </div>
 
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </form>
+    </div>
+    <div class="col-12 col-lg-6">2 of 2</div>
+  </div>
+</div>
