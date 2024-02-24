@@ -1,1 +1,1 @@
-export * from './cdb-result';
+export * from './cdb-result.schema';

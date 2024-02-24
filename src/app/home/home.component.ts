@@ -27,6 +27,13 @@ export class HomeComponent implements OnInit {
   }
 
   submit(): void {
-    this.cdbSimulatorService.simulateCdb().subscribe(console.log);
+    const initialValue = this.form.controls.initialValue.value;
+    const monthsValue = this.form.controls.months.value;
+
+    if (initialValue && monthsValue) {
+      this.cdbSimulatorService
+        .simulateCdb(initialValue, monthsValue)
+        .subscribe(console.log);
+    }
   }
 }
