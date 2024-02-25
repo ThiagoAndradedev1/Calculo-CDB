@@ -23,6 +23,6 @@ describe('SimulationResultsComponent', () => {
 
     expect(
       fixture.nativeElement.querySelector('#totalValue').innerText
-    ).toEqual('Valor bruto: $10.00');
+    ).toEqual('Valor bruto: R$10.00');
   });
 });

@@ -13,61 +13,9 @@
 <div class="container mt-4">
   <div class="row gx-5">
     <div class="col-12 col-lg-6">
-      <form
-        [formGroup]="form"
-        (ngSubmit)="submit()"
-        id="simulation-form"
-        class="form-d"
-      >
-        <div class="mb-3">
-          <label for="initialValue" class="form-label">Valor Inicial</label>
-          <input
-            type="text"
-            class="form-control"
-            [class.is-invalid]="
-              formControls.initialValue.dirty &&
-              formControls.initialValue.invalid
-            "
-            id="initialValue"
-            aria-describedby="initialValue"
-            placeholder="Valor Inicial"
-            formControlName="initialValue"
-          />
-
-          @if ( formControls.initialValue.dirty &&
-          formControls.initialValue.invalid) {
-          <div class="invalid-feedback">O campo está invalido</div>
-          }
-        </div>
-        <div class="mb-3">
-          <label for="months" class="form-label">Meses</label>
-          <input
-            appNumberOnly
-            type="text"
-            class="form-control"
-            [class.is-invalid]="
-              formControls.months.dirty && formControls.months.invalid
-            "
-            id="months"
-            placeholder="Meses"
-            formControlName="months"
-          />
-          @if ( formControls.months.dirty && formControls.months.invalid) {
-          <div class="invalid-feedback">O campo está invalido</div>
-          }
-        </div>
-
-        <div class="d-grid">
-          <button
-            id="submit-btn"
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="form.invalid"
-          >
-            Calcular
-          </button>
-        </div>
-      </form>
+      <app-simulation-form
+        (submitSimulationEvent)="submitSimulationEvent($event)"
+      />
     </div>
     <div class="col-12 col-lg-6">
       <app-simulation-results
