@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-4">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">💰 Calculadora de CDB 💰</h1>
+    <div class="container text-center">
+      <h1 class="display-4">Calculadora de CDB 💰</h1>
       <p class="lead">
         Uma calculadora simplificada para saber o resultado dos seus
         investimentos!
@@ -18,7 +18,7 @@
         (submitSimulationEvent)="submitSimulationEvent($event)"
       />
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 mt-4 mt-md-0">
       <app-simulation-results
         [discountedValue]="discountedValue()"
         [totalValue]="totalValue()"
