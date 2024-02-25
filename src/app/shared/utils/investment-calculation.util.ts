@@ -2,7 +2,7 @@ const calculateDiscountedValueCdb = (
   totalValue: number,
   months: number
 ): number => {
-  if (months <= 6) {
+  if (months > 0 && months <= 6) {
     return totalValue * (22.5 / 100);
   }
 
@@ -18,7 +18,7 @@ const calculateDiscountedValueCdb = (
     return totalValue * (15 / 100);
   }
 
-  return 0;
+  return -1;
 };
 
 export { calculateDiscountedValueCdb };
