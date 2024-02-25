@@ -115,4 +115,15 @@ describe('SimulationFormComponent', () => {
 
     expect(button).toBeTruthy();
   }));
+
+  it('should permit the month input to be a number', () => {
+    const fixture = TestBed.createComponent(SimulationFormComponent);
+
+    const monthElement: HTMLInputElement =
+      fixture.nativeElement.querySelector('#months');
+
+    monthElement.value = '1';
+
+    expect(monthElement.value).toEqual('1');
+  });
 });
