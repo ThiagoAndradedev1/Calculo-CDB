@@ -15,11 +15,17 @@ import {
 } from '@angular/forms';
 import { SimulationResultsComponent } from './components/simulation-results/simulation-results.component';
 import { SimulationForm } from './forms';
+import { NumberOnlyDirective } from '../shared/directives/number-only.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, SimulationResultsComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SimulationResultsComponent,
+    NumberOnlyDirective,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
