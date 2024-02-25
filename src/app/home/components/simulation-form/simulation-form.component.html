@@ -19,9 +19,16 @@
       formControlName="initialValue"
     />
 
-    @if ( formControls.initialValue.dirty && formControls.initialValue.invalid)
-    {
-    <div class="invalid-feedback">O campo está invalido</div>
+    @if (
+      formControls.initialValue.invalid &&
+      (formControls.initialValue.dirty || formControls.initialValue.touched)
+    ) {
+      @if (formControls.initialValue.errors?.["required"]) {
+        <div class="invalid-feedback">O campo é obrigatório</div>
+      }
+      @if (formControls.initialValue.errors?.["min"]) {
+        <div class="invalid-feedback">O valor mínimo é R$ 1,00</div>
+      }
     }
   </div>
   <div class="mb-3">
@@ -37,8 +44,18 @@
       placeholder="Meses"
       formControlName="months"
     />
-    @if ( formControls.months.dirty && formControls.months.invalid) {
-    <div class="invalid-feedback">O campo está invalido</div>
+    @if (
+      formControls.months.invalid &&
+      (formControls.months.dirty || formControls.months.touched)
+    ) {
+      @if (formControls.months.errors?.["required"]) {
+        <div class="invalid-feedback">O campo é obrigatório</div>
+      }
+      @if (formControls.months.errors?.["min"]) {
+        <div class="invalid-feedback">
+          A quantidade mínima de meses é 1 (um)
+        </div>
+      }
     }
   </div>
 
