@@ -1,14 +1,15 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
+import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appCurrency]',
   standalone: true,
 })
 export class CurrencyDirective {
-  constructor(private _el: ElementRef) {}
+  constructor(private _el: ElementRef, private _ngControl: NgControl) {}
 
   @HostListener('input', ['$event'])
-  onInputChange(event: Event): void {
+  onInputChange(_: Event): void {
     const initalValue = this._el.nativeElement.value;
     const valueWithOnlyNumbers = initalValue.replace(/[^0-9]*/g, '');
     const currency = new Intl.NumberFormat('pt-BR', {
@@ -16,10 +17,13 @@ export class CurrencyDirective {
       currency: 'BRL',
     }).format(Number(valueWithOnlyNumbers / 100));
 
-    this._el.nativeElement.value = currency;
+    const integerValue = currency
+      .replace('R$', '')
+      .trim()
+      .replace('.', '')
+      .replace(',', '.');
 
-    if (initalValue !== this._el.nativeElement.value) {
-      event.stopPropagation();
-    }
+    this._ngControl.control?.patchValue(integerValue);
+    this._el.nativeElement.value = currency;
   }
 }
