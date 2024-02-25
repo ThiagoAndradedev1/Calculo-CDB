@@ -9,7 +9,7 @@ export class CurrencyDirective {
   constructor(private _el: ElementRef, private _ngControl: NgControl) {}
 
   @HostListener('input', ['$event'])
-  onInputChange(_: Event): void {
+  onInputChange(): void {
     const initalValue = this._el.nativeElement.value;
     const valueWithOnlyNumbers = initalValue.replace(/[^0-9]*/g, '');
     const currency = new Intl.NumberFormat('pt-BR', {

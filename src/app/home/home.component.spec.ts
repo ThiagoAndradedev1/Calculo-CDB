@@ -1,4 +1,4 @@
-import { TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { By } from '@angular/platform-browser';
 

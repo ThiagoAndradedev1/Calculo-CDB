@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
+import { TestBed, fakeAsync } from '@angular/core/testing';
 import { SimulationFormComponent } from './simulation-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 

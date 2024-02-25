@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  signal,
-  type OnInit,
   EventEmitter,
   Output,
 } from '@angular/core';
