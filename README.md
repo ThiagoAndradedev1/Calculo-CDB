@@ -1,27 +1,45 @@
-# CalculoCdb
+<div align="center">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+# Calculadora de CDB 💰
 
-## Development server
+### Um simulador para o cálculo do CDB
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Projeto online
 
-## Code scaffolding
+<a href="https://calculo-cdb.vercel.app/">Disponível aqui. <a/>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Como rodar o projeto
 
-## Build
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng serve
+```
 
-## Running unit tests
+## Como rodar os testes unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Visualização simples
 
-## Running end-to-end tests
+```bash
+ng test
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Visualização com o coverage
 
-## Further help
+```bash
+ng test --no-watch --code-coverage
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Features
+
+<div align="left">
+
+- Implementação em Angular utilizando a nova API padrão standalone components
+- Coverage de 100% nos testes unitários
+- Apenas uma biblioeca externa sendo utilizada (bootstrap), restante do código implementado apenas com implementações nativas
+- Visualização detalhada (valor líquido, bruto e tempo em meses)
+- Deploy do projeto realizado na Vercel
+
+</div>
