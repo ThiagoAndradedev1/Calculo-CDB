@@ -11,7 +11,7 @@ export class CurrencyDirective {
   @HostListener('input', ['$event'])
   onInputChange(): void {
     const initalValue = this._el.nativeElement.value;
-    const valueWithOnlyNumbers = initalValue.replace(/[^0-9]*/g, '');
+    const valueWithOnlyNumbers = initalValue.replace(/\D*/g, '');
     const currency = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',

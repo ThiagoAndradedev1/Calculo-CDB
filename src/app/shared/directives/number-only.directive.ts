@@ -10,6 +10,6 @@ export class NumberOnlyDirective {
   @HostListener('input', ['$event'])
   onInputChange(): void {
     const initalValue = this._el.nativeElement.value;
-    this._el.nativeElement.value = initalValue.replace(/[^0-9]*/g, '');
+    this._el.nativeElement.value = initalValue.replace(/\D*/g, '');
   }
 }
