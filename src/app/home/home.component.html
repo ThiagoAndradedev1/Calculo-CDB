@@ -24,21 +24,36 @@
           <input
             type="text"
             class="form-control"
+            [class.is-invalid]="
+              formControls.initialValue.dirty &&
+              formControls.initialValue.invalid
+            "
             id="initialValue"
             aria-describedby="initialValue"
             placeholder="Valor Inicial"
             formControlName="initialValue"
           />
+
+          @if ( formControls.initialValue.dirty &&
+          formControls.initialValue.invalid) {
+          <div class="invalid-feedback">O campo está invalido</div>
+          }
         </div>
         <div class="mb-3">
           <label for="months" class="form-label">Meses</label>
           <input
             type="text"
             class="form-control"
+            [class.is-invalid]="
+              formControls.months.dirty && formControls.months.invalid
+            "
             id="months"
             placeholder="Meses"
             formControlName="months"
           />
+          @if ( formControls.months.dirty && formControls.months.invalid) {
+          <div class="invalid-feedback">O campo está invalido</div>
+          }
         </div>
 
         <div class="d-grid">
