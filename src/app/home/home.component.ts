@@ -16,6 +16,7 @@ import {
 import { SimulationResultsComponent } from './components/simulation-results/simulation-results.component';
 import { SimulationForm } from './forms';
 import { NumberOnlyDirective } from '../shared/directives/number-only.directive';
+import { CurrencyDirective } from '../shared/directives/currency.directive';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ import { NumberOnlyDirective } from '../shared/directives/number-only.directive'
     ReactiveFormsModule,
     SimulationResultsComponent,
     NumberOnlyDirective,
+    CurrencyDirective,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
