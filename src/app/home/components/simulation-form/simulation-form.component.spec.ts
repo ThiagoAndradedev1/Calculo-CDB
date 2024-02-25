@@ -51,7 +51,7 @@ describe('SimulationFormComponent', () => {
     const initialValueFormControlValue =
       fixture.componentInstance.formControls.initialValue.value;
 
-    expect(initialValueFormControlValue?.toString()).toEqual('10');
+    expect(initialValueFormControlValue?.toString()).toEqual('0.10');
   });
 
   it('should update the value of the input field month', () => {
