@@ -9,10 +9,12 @@ import { CdbSimulatorService } from '../data/services/cdb-simulator.service';
 import {
   FormBuilder,
   FormControl,
+  FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { SimulationResultsComponent } from './components/simulation-results/simulation-results.component';
+import { SimulationForm } from './forms';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +30,13 @@ export class HomeComponent implements OnInit {
     private readonly cdbSimulatorService: CdbSimulatorService
   ) {}
 
-  protected form = this.fbBuilder.group({
-    initialValue: [0, Validators.required],
-    months: [0, Validators.required],
+  protected form = this.fbBuilder.group<SimulationForm>({
+    initialValue: new FormControl<number | null>(null, {
+      validators: [Validators.required, Validators.min(1)],
+    }),
+    months: new FormControl<number | null>(null, {
+      validators: [Validators.required, Validators.min(1)],
+    }),
   });
 
   protected totalValue = signal(0);
