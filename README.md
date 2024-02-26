@@ -34,7 +34,7 @@ ng test --no-watch --code-coverage
 
 ### Escolhendo o browser para abrir os testes
 
-#### É possível usar apenas um browser (Chrome Ou Chromium)
+#### É possível escolher entre os dois browsers (Chrome Ou Chromium). Por padrão os dois são executados.
 
 ```bash
 ng test --no-watch --code-coverage --browsers Chromium
