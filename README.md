@@ -32,6 +32,18 @@ ng test
 ng test --no-watch --code-coverage
 ```
 
+### Escolhendo o browser para abrir os testes
+
+#### É possível usar apenas um browser (Chrome Ou Chromium)
+
+```bash
+ng test --no-watch --code-coverage --browsers Chromium
+```
+
+```bash
+ng test --no-watch --code-coverage --browsers Chrome
+```
+
 ## Features
 
 <div align="left">
